@@ -339,8 +339,7 @@ class _MeasurementCalculatorState extends State<MeasurementCalculator> {
             'If units are left out, they are assumed to be inches.\n\n'
             'Other notes:\n'
             '• Tapping the output box opens the calculation history.\n'
-            '• Memory items can be deleted by swiping right.\n'
-            '• Use the result display to review and select prior calculations.',
+            '• Memory items can be deleted by swiping right.'
           ),
         ),
         actions: [
