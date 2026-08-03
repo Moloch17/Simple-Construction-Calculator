@@ -320,13 +320,53 @@ class _MeasurementCalculatorState extends State<MeasurementCalculator> {
     _setExpressionValue('', 0);
   }
 
+  void _showHelp() {
+    showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.grey.shade900,
+        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
+        contentTextStyle: const TextStyle(color: Colors.white70, fontSize: 16, height: 1.5),
+        title: const Text('Help'),
+        content: const SingleChildScrollView(
+          child: Text(
+            'How to enter measurements:\n\n'
+            '• Enter a number, then the feet sign (\').\n'
+            '• Enter an operator.\n'
+            '• Enter a number, then the inches sign (").\n'
+            '• Enter the fraction.\n\n'
+            'Example: 1\' 2" 3/4\n\n'
+            'If units are left out, they are assumed to be inches.\n\n'
+            'Other notes:\n'
+            '• Tapping the output box opens the calculation history.\n'
+            '• Memory items can be deleted by swiping right.\n'
+            '• Use the result display to review and select prior calculations.',
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Close'),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Construction Calculator'),
+        title: const Text('Simple Construction Calculator'),
         centerTitle: true,
         backgroundColor: const Color(0xFF4A90E2),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.help_outline),
+            tooltip: 'Help',
+            onPressed: _showHelp,
+          ),
+        ],
       ),
       body: SafeArea(
         child: Padding(

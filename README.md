@@ -1,17 +1,44 @@
-# simple_calc
+# Simple Construction Calculator
 
-A new Flutter project.
+Simple Construction Calculator is a Flutter app for fast construction and framing measurements using feet, inches, and fractional inches.
 
-## Getting Started
+## How to use the calculator
 
-This project is a starting point for a Flutter application.
+1. Enter a number, then the feet sign (`'`).
+2. Enter an operator.
+3. Enter a number, then the inches sign (`"`).
+4. Enter the fraction.
 
-A few resources to get you started if this is your first Flutter project:
+Example input:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- `1' 2" 3/4`
+- `18' 11" 1/2 - 1" 1/2`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If units are left out, the app assumes the value is in inches.
+
+## Input rules
+
+- Use the format `number' number" fraction`
+- Fractions are entered as values such as `1/2`, `3/4`, `5/16`
+- Values without a foot or inch marker are treated as inches
+- The result display can be tapped to open the calculation history
+- Saved memory entries can be deleted by swiping right
+
+## Running the app
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Testing
+
+```bash
+flutter test
+```
+
+## Notes
+
+- The output box is also the history entry point.
+- The app keeps a running calculation history grouped by day.
+- Memory items can be saved and later removed with a swipe gesture.
