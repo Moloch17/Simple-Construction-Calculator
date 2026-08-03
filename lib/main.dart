@@ -391,13 +391,14 @@ class _MeasurementCalculatorState extends State<MeasurementCalculator> {
     return GestureDetector(
       onTap: _showHistory,
       child: Container(
-        height: 92,
-        padding: const EdgeInsets.all(18),
+        height: 116,
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.grey.shade900,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
@@ -414,19 +415,22 @@ class _MeasurementCalculatorState extends State<MeasurementCalculator> {
               ),
             ),
             if (hasError)
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: SizedBox(
-                  width: double.infinity,
+              const SizedBox(height: 8),
+            if (hasError)
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: Text(
                     _errorMessage,
                     textAlign: TextAlign.left,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(color: Colors.redAccent, fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                 ),
               )
             else ...[
-              const SizedBox(height: 12),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Expanded(
